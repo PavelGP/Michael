@@ -5,7 +5,7 @@ android {
     buildToolsVersion '21.1.1'
 
     defaultConfig {
-        applicationId "by.of.servicebook.myapplication"
+        applicationId "by.of.servicebook.michael.service"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1

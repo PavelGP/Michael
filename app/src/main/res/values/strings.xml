@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Michael</string>
+    <string name="app_name">Michael-service</string>
     <string name="fragment_title_garage">Гараж</string>
     <string name="fragment_title_records">Записи</string>
     <string name="fragment_title_statistic">Статистика</string>

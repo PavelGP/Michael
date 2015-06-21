@@ -15,6 +15,7 @@ import com.parse.ParseUser;
 
 import by.of.servicebook.myapplication.R;
 import by.of.servicebook.myapplication.commands.SyncData;
+import by.of.servicebook.myapplication.utils.AppUtils;
 
 public class SplashActivity extends ActionBarActivity {
     ViewHolder viewHolder;
@@ -35,8 +36,10 @@ public class SplashActivity extends ActionBarActivity {
         ParseUser user = ParseUser.getCurrentUser();
         if (user == null){
             LoginActivity.launch(this);
-        } else {
+        } else if (AppUtils.isNetworkConnected(this)) {
             new SyncData(this, syncCallback).execute();
+        } else {
+            MainActivity.launch(SplashActivity.this);
         }
     }
 
