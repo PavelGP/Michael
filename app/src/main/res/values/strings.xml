@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Michael-service</string>
+    <string name="app_name">Michael</string>
     <string name="fragment_title_garage">Гараж</string>
     <string name="fragment_title_records">Записи</string>
     <string name="fragment_title_statistic">Статистика</string>
@@ -23,6 +23,11 @@
     <string name="enter">Войти</string>
     <string name="bad_login_or_password">Неверный логин или пароль</string>
     <string name="no_internet">Отсутствует интернет соединение</string>
+    <string name="btn_register_text">Зарегистрироваться</string>
+
+    <!-- activity_register.xml -->
+    <string name="email">Email</string>
+    <string name="existing_email">Пользователь с таким email уже зарегистрирован</string>
 
     <!-- activity_terms_of_use.xml -->
     <string name="terms_of_use">1. Приложение предоставляется на условиях «как есть» (as is). Правообладатель не предоставляет никаких гарантий в отношении безошибочной и бесперебойной работы Приложения, соответствия Приложения конкретным целям и ожиданиям Пользователя, а также не предоставляет никаких иных гарантий, прямо не указанных в настоящем Соглашении.
@@ -92,6 +97,7 @@
     <string name="nol">0</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_terms_of_use">Условия использования</string>
 
 </resources>

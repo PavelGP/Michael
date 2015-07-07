@@ -43,7 +43,13 @@
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTop">
         </activity>
         <activity
             android:name=".activities.TermsOfUseActivity"

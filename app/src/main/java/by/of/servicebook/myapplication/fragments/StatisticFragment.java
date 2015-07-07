@@ -49,11 +49,13 @@ public class StatisticFragment extends Fragment {
         //init car make and model
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         String carId = sharedPreferences.getString(AppConst.VEHICLE, "");
-        Car car = provider.getCarById(carId);
-        TextView tvCar = (TextView) rootView.findViewById(R.id.tvCar);
-        tvCar.setText(car.make + " " + car.model);
+        if (!carId.equals("")) {
+            Car car = provider.getCarById(carId);
+            TextView tvCar = (TextView) rootView.findViewById(R.id.tvCar);
+            tvCar.setText(car.make + " " + car.model);
 
-        initViews(rootView, car.key);
+            initViews(rootView, car.key);
+        }
 
         return rootView;
     }

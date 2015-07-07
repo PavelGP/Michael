@@ -32,14 +32,11 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         ViewHolder viewHolder = new ViewHolder();
         viewHolder.initViews(this);
-
     }
-
-
 
     class ViewHolder{
         EditText etLogin, etPassword;
-        Button btnEnter;
+        Button btnEnter, btnRegister;
         ProgressBar progressBar;
 
         void initViews(Activity activity){
@@ -47,6 +44,7 @@ public class LoginActivity extends ActionBarActivity {
             etLogin = (EditText)activity.findViewById(R.id.etLogin);
             etPassword = (EditText)activity.findViewById(R.id.etPassword);
             btnEnter = (Button) activity.findViewById(R.id.btnEnter);
+            btnRegister = (Button) activity.findViewById(R.id.btnRegister);
             progressBar = (ProgressBar) activity.findViewById(R.id.progress);
 
             btnEnter.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +57,13 @@ public class LoginActivity extends ActionBarActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
 
+                }
+            });
+
+            btnRegister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RegisterActivity.launch(LoginActivity.this);
                 }
             });
         }

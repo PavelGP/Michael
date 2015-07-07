@@ -56,9 +56,11 @@ public class GarageFragment extends Fragment {
 
         if (car.equals("")){
             List<Car> carList = DataProvider.getInstance().getAllCars();
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString(AppConst.VEHICLE, carList.get(0).key);
-            editor.apply();
+            if (carList.size() != 0) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(AppConst.VEHICLE, carList.get(0).key);
+                editor.apply();
+            }
         }
 
         ListView lvCars = (ListView) v.findViewById(R.id.lvCars);
