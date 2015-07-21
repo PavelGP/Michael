@@ -66,11 +66,15 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item))
-            return true;
-
         int id = item.getItemId();
-        return id == R.id.action_settings || super.onOptionsItemSelected(item);
+        switch (id) {
+            case R.id.action_add_record:
+                Intent intent = new Intent(this, AddRecordActivity.class);
+                startActivity(intent);
+                Log.d("TAG", "action add record pressed");
+                return true;
+        }
+        return  super.onOptionsItemSelected(item);
     }
 
     @Override

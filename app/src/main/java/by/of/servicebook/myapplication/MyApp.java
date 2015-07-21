@@ -12,6 +12,7 @@ import by.of.servicebook.myapplication.parse.models.ParseCar;
 import by.of.servicebook.myapplication.parse.models.ParseDetail;
 import by.of.servicebook.myapplication.parse.models.ParseJob;
 import by.of.servicebook.myapplication.parse.models.ParseRecord;
+import by.of.servicebook.myapplication.parse.models.ParseService;
 import by.of.servicebook.myapplication.parse.models.ParseStatistic;
 import by.of.servicebook.myapplication.utils.AppConst;
 
@@ -29,6 +30,7 @@ public class MyApp extends Application {
         ParseObject.registerSubclass(ParseJob.class);
         ParseObject.registerSubclass(ParseDetail.class);
         ParseObject.registerSubclass(ParseStatistic.class);
+        ParseObject.registerSubclass(ParseService.class);
         Parse.initialize(this, "ZjTI65G77ck4IneaorWJTVdZnUz6YBUTkC8GOpxh", "h9gPunO5xfdcEF4yVQXoRGhjkRaUzEc550GCZvi1");
     }
 }

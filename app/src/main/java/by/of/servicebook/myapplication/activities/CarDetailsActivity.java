@@ -16,12 +16,11 @@ import by.of.servicebook.myapplication.commands.SaveToParse;
 import by.of.servicebook.myapplication.db.models.Car;
 import by.of.servicebook.myapplication.db.DataProvider;
 
-public class CarDetailsActivity extends ActionBarActivity implements View.OnClickListener{
+public class CarDetailsActivity extends ActionBarActivity{
 
     public static final String CAR_ID = "car_id";
     private final String DEFAULT_ID = "";
     private Car car;
-    private ProgressBar progressBar;
 
     public static void launch(Context context, String carId){
         Intent intent = new Intent(context, CarDetailsActivity.class);
@@ -56,10 +55,7 @@ public class CarDetailsActivity extends ActionBarActivity implements View.OnClic
         TextView tvColor = (TextView) findViewById(R.id.tvColor);
         TextView tvRegDate = (TextView) findViewById(R.id.tvRegDate);
         TextView tvRegMileage = (TextView) findViewById(R.id.tvRegMileage);
-        Button btnSave = (Button) findViewById(R.id.save);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
 
-        btnSave.setOnClickListener(this);
 
         tvMake.setText(car.make);
         tvModel.setText(car.model);
@@ -77,17 +73,6 @@ public class CarDetailsActivity extends ActionBarActivity implements View.OnClic
             carId = getIntent().getExtras().getString(CAR_ID, DEFAULT_ID);
         }
         car = DataProvider.getInstance().getCarById(carId);
-    }
-
-    @Override
-    public void onClick(View v) {
-        progressBar.setVisibility(View.VISIBLE);
-        new SaveToParse(car, new SaveToParse.Callback() {
-            @Override
-            public void doCallback() {
-                progressBar.setVisibility(View.INVISIBLE);
-            }
-        }).execute();
     }
 
     @Override

@@ -13,6 +13,7 @@
     <string name="action_settings">Settings</string>
     <string name="your_cars">Ваши автомобили</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_record">Добавить запись</string>
 
     <!-- activity_splash.xml -->
     <string name="service_book">Электронная сервисная книга</string>
@@ -39,6 +40,13 @@
 \n 7. Правообладатель оставляет за собой право изменять условия настоящего Соглашения без предварительного уведомления Пользователя. Изменения вступают в силу с момента размещения их в новой версии Приложения.
 </string>
 
+    <!-- activity_add_record.xml -->
+    <string name="no_file">Отсутствует отправляемый файл</string>
+    <string name="warning">Внимание!</string>
+    <string name="add_record_instruction">Выберите в <b>Галерее</b> акт выполненных работ вашего автомобиля и нажмите кнопку <b>Отправить</b>. Через некоторое время запись будет добавлена в вашу сервисную книгу. \nНовый автомобиль создастся автоматически.</string>
+    <string name="file_successfully_sent">Файл успешно отправлен</string>
+    <string name="file_not_sent">Ошибка отправления файла. Попробуйте еще раз</string>
+    <string name="file_sending">Отправка файла...</string>
 
     <!-- item_car.xml -->
     <string name="date_of_edition">г.в.,</string>
@@ -99,5 +107,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_terms_of_use">Условия использования</string>
+    <string name="title_activity_add_record">Добавить запись</string>
 
 </resources>
