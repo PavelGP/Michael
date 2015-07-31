@@ -71,6 +71,9 @@ public class SyncData extends AsyncTask<Void, Void, Void> {
             }
         } catch (ParseException e) {
             e.printStackTrace();
+        } catch (ClassCastException e){
+            ParseUser.logOutInBackground();
+            e.printStackTrace();
         }
     }
 

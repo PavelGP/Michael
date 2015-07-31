@@ -17,9 +17,9 @@ public class NoticeDialogFragment extends BaseDialogFragment {
     public static final String MESSAGE_CONTENT = "MESSAGE_CONTENT";
 
 
-    public static DialogFragment newInstance(String messageTitle, String messageContent,  NoticeDialogListener noticeDialogListener) {
+    public static DialogFragment newInstance(String messageTitle, String messageContent,  BaseNoticeDialogListener noticeDialogListener) {
         BaseDialogFragment noticeDialogFragment = new NoticeDialogFragment();
-        noticeDialogFragment.setmListener(noticeDialogListener);
+        noticeDialogFragment.setListener(noticeDialogListener);
         // Supply num input as an argument.
         Bundle args = new Bundle();
         args.putString(MESSAGE_TITLE, messageTitle);
@@ -40,18 +40,31 @@ public class NoticeDialogFragment extends BaseDialogFragment {
 
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(messageTitle);
-        builder.setMessage(messageContent)
-                .setPositiveButton(android.R.string.ok , new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (mListener != null) mListener.onDialogPositiveClick(NoticeDialogFragment.this);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (mListener != null) mListener.onDialogNegativeClick(NoticeDialogFragment.this);
-                    }
-                });
+        builder.setTitle(messageTitle)
+                .setMessage(messageContent);
+        if (getListener() != null && getListener() instanceof BaseNoticeDialogListener){
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    mListener.onDialogPositiveClick(NoticeDialogFragment.this);
+                }
+            });
+        }
+
+        if (getListener() != null && getListener() instanceof NoticeDialogListener) {
+            builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    ((NoticeDialogListener) mListener).onDialogNegativeClick(NoticeDialogFragment.this);
+                }
+            });
+        }
+
+        if (getListener() != null && getListener() instanceof FullNoticeDialogListener) {
+            builder.setNeutralButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    ((FullNoticeDialogListener) mListener).onDialogNeutralClick(NoticeDialogFragment.this);
+                }
+            });
+        }
 
         // Create the AlertDialog object and return it
         return builder.create();

@@ -7,19 +7,26 @@ import android.app.DialogFragment;
  */
 public abstract class BaseDialogFragment extends DialogFragment {
 
-    protected NoticeDialogListener mListener;
+    protected BaseNoticeDialogListener mListener;
 
-    public interface NoticeDialogListener {
+    public interface BaseNoticeDialogListener {
         public void onDialogPositiveClick(DialogFragment dialog);
+    }
+
+    public interface NoticeDialogListener extends  BaseNoticeDialogListener{
         public void onDialogNegativeClick(DialogFragment dialog);
     }
 
-    public interface CustomNoticeDialogListener extends NoticeDialogListener{
+    public interface FullNoticeDialogListener extends NoticeDialogListener{
         public void onDialogNeutralClick(DialogFragment dialog);
     }
 
-    public void setmListener(NoticeDialogListener mListener) {
+    public void setListener(BaseNoticeDialogListener mListener) {
         this.mListener = mListener;
+    }
+
+    public BaseNoticeDialogListener getListener() {
+        return mListener;
     }
 }
 

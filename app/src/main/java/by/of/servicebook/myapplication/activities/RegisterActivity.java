@@ -1,6 +1,7 @@
 package by.of.servicebook.myapplication.activities;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,11 +11,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 import by.of.servicebook.myapplication.R;
+import by.of.servicebook.myapplication.fragments.dialogs.BaseDialogFragment;
+import by.of.servicebook.myapplication.fragments.dialogs.NoticeDialogFragment;
 import by.of.servicebook.myapplication.utils.AppUtils;
 
 /**
@@ -61,6 +65,12 @@ public class RegisterActivity extends ActionBarActivity {
         }
 
         void doSignUp(){
+            if (!AppUtils.isValidEmail(etEmail.getText().toString())){
+                Toast.makeText(RegisterActivity.this, getString(R.string.not_valid_email),
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             progressBar.setVisibility(View.VISIBLE);
 
             ParseUser user = new ParseUser();
@@ -72,7 +82,16 @@ public class RegisterActivity extends ActionBarActivity {
                 public void done(ParseException e) {
                     if (e == null) {
                         progressBar.setVisibility(View.INVISIBLE);
-                        LoginActivity.launch(RegisterActivity.this);
+                        //TODO move dialog into other activity
+                        NoticeDialogFragment.newInstance(getString(R.string.successful_registration_title),
+                                String.format(getString(R.string.successful_registration_message), etEmail.getText().toString(), etPassword.getText().toString()),
+                                new BaseDialogFragment.BaseNoticeDialogListener() {
+                                    @Override
+                                    public void onDialogPositiveClick(DialogFragment dialog) {
+                                        dialog.dismiss();
+                                        doLogin();
+                                    }
+                                }).show(getFragmentManager(), null);
                     } else {
                         progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(RegisterActivity.this, getString(R.string.existing_email),
@@ -80,6 +99,24 @@ public class RegisterActivity extends ActionBarActivity {
                     }
                 }
             });
+        }
+
+        void doLogin(){
+            progressBar.setVisibility(View.VISIBLE);
+            ParseUser.logInInBackground(etEmail.getText().toString(),
+                    etPassword.getText().toString(), new LogInCallback() {
+                        @Override
+                        public void done(ParseUser parseUser, ParseException e) {
+                            if (e == null && parseUser != null) {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                SplashActivity.launch(RegisterActivity.this);
+                            } else {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(RegisterActivity.this, getString(R.string.bad_login_or_password),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
         }
     }
 }
