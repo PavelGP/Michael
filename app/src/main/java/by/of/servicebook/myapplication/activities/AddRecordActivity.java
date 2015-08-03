@@ -2,6 +2,7 @@ package by.of.servicebook.myapplication.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,12 +16,9 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,17 +33,19 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import by.of.servicebook.myapplication.R;
+import by.of.servicebook.myapplication.fragments.dialogs.BaseDialogFragment;
 import by.of.servicebook.myapplication.fragments.dialogs.NoticeDialogFragment;
 import by.of.servicebook.myapplication.parse.models.ParseService;
-import by.of.servicebook.myapplication.utils.AppConst;
 import by.of.servicebook.myapplication.utils.AppUtils;
+import by.of.servicebook.myapplication.utils.TakeImageHelper;
 
 
 public class AddRecordActivity extends ActionBarActivity {
-    private final int PICK_PHOTO_REQCODE = 100;
+    private final int TAKE_PHOTO_REQCODE = 100;
     private final int CAPTURE_IMAGE_REQCODE = 101;
 
     private ImageView ivDoc;
+    private TakeImageHelper mTakeImageHelper;
 
     private ParseFile mDocFile;
     private String mClientEmail, mServiceId, mServiceName;
@@ -59,21 +59,12 @@ public class AddRecordActivity extends ActionBarActivity {
 
         ivDoc = (ImageView) findViewById(R.id.ivDoc);
 
-        //pick image
-        Button btnFile = (Button) findViewById(R.id.btnFile);
-        btnFile.setOnClickListener(new View.OnClickListener() {
+        //take image
+        Button btnTakeImage = (Button) findViewById(R.id.btnFile);
+        btnTakeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pickImage();
-            }
-        });
-
-        //capture image
-        Button btnCamera = (Button) findViewById(R.id.btnCamera);
-        btnCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                captureImage();
+                takeImage();
             }
         });
 
@@ -112,30 +103,35 @@ public class AddRecordActivity extends ActionBarActivity {
 
 
 
-    private void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_PHOTO_REQCODE);
-    }
-
-    private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        // start the image capture Intent
-        startActivityForResult(intent, CAPTURE_IMAGE_REQCODE);
+    private void takeImage() {
+        mTakeImageHelper = new TakeImageHelper(this);
+        Intent intent = mTakeImageHelper.createImageChooserIntent();
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, TAKE_PHOTO_REQCODE);
+        }
     }
 
     private void sendClientInfo(){
         //internet connection validation
         if (!AppUtils.isNetworkConnected(this)){
-            NoticeDialogFragment.newInstance(getString(R.string.warning), getString(R.string.no_internet), null)
+            NoticeDialogFragment.newInstance(getString(R.string.warning), getString(R.string.no_internet), new BaseDialogFragment.BaseNoticeDialogListener() {
+                @Override
+                public void onDialogPositiveClick(DialogFragment dialog) {
+                    dialog.dismiss();
+                }
+            })
                     .show(getFragmentManager(), null);
             return;
         }
 
         //file validation
         if (mDocFile == null){
-            NoticeDialogFragment.newInstance(getString(R.string.warning), getString(R.string.no_file), null)
+            NoticeDialogFragment.newInstance(getString(R.string.warning), getString(R.string.no_file), new BaseDialogFragment.BaseNoticeDialogListener() {
+                @Override
+                public void onDialogPositiveClick(DialogFragment dialog) {
+                    dialog.dismiss();
+                }
+            })
                     .show(getFragmentManager(), null);
             return;
         }
@@ -166,65 +162,23 @@ public class AddRecordActivity extends ActionBarActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mDocFile = null;
-        if (requestCode == PICK_PHOTO_REQCODE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
+        if (requestCode == TAKE_PHOTO_REQCODE && resultCode == Activity.RESULT_OK) {
+            if (data == null) return;
+
+            mTakeImageHelper.setResultData(data);
+
+            if (mTakeImageHelper.getImageUri() == null) return;
 
             //show image
-            Uri selectedImage = data.getData();
+            Uri imageUri = mTakeImageHelper.getImageUri();
 
-            String filePath = getPath(selectedImage);
+            ivDoc.setImageURI(imageUri);
 
-            if(filePath!=null) {
-                Bitmap photo = BitmapFactory.decodeFile(filePath);
-                ivDoc.setImageBitmap(photo);
-            } else {
-                try {
-                    InputStream is = getContentResolver().openInputStream(selectedImage);
-                    ivDoc.setImageBitmap(BitmapFactory.decodeStream(is));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-
-            Log.d("TAG", "got result from galery");
+            Log.d("TAG", "take image");
 
             //create ParseFile object
             try {
-                InputStream inputStream = getContentResolver().openInputStream(data.getData());
-                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-
-                int nRead;
-                byte[] fileData = new byte[16384];
-                while ((nRead = inputStream.read(fileData, 0, fileData.length)) != -1) {
-                    buffer.write(fileData, 0, nRead);
-                }
-                buffer.flush();
-                byte[] allFileData = buffer.toByteArray();
-
-                mDocFile = new ParseFile(allFileData);
-
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        } else if (requestCode == CAPTURE_IMAGE_REQCODE && resultCode == Activity.RESULT_OK){
-            if (data == null) {
-                //Display an error
-                return;
-            }
-
-            //show image
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            ivDoc.setImageBitmap(photo);
-            Log.d("TAG", "got camera result");
-
-            //create ParseFile object
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(data.getData());
+                InputStream inputStream = getContentResolver().openInputStream(imageUri);
                 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
                 int nRead;
@@ -242,40 +196,4 @@ public class AddRecordActivity extends ActionBarActivity {
             }
         }
     }
-
-    @SuppressLint("NewApi")
-    private String getPath(Uri uri) {
-        if( uri == null ) {
-            return null;
-        }
-
-        String[] projection = { MediaStore.Images.Media.DATA };
-
-        Cursor cursor;
-        if(Build.VERSION.SDK_INT >19){
-            // Will return "image:x*"
-            String wholeID = DocumentsContract.getDocumentId(uri);
-            // Split at colon, use second item in the array
-            String id = wholeID.split(":")[1];
-            // where id is equal to
-            String sel = MediaStore.Images.Media._ID + "=?";
-
-            cursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    projection, sel, new String[]{ id }, null);
-        } else {
-            cursor = getContentResolver().query(uri, projection, null, null, null);
-        }
-        String path = null;
-        try {
-            int column_index = cursor
-                    .getColumnIndex(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            path = cursor.getString(column_index).toString();
-            cursor.close();
-        } catch(NullPointerException e) {
-            e.printStackTrace();
-        }
-        return path;
-    }
-
 }

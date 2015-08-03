@@ -28,7 +28,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_alignParentBottom="true"
-            android:text="Галерея"/>
+            android:text="Фото"/>
 
         <Button
             android:id="@+id/btnSend"

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.app.Application;
 import com.parse.Parse;
+import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
 
 import by.of.servicebook.myapplication.parse.models.ParseCar;
@@ -24,6 +25,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         ActiveAndroid.initialize(this);
+
         //register parse.com subclasses
         ParseObject.registerSubclass(ParseCar.class);
         ParseObject.registerSubclass(ParseRecord.class);

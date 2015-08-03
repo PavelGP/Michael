@@ -14,6 +14,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 
 
+import com.parse.ParseAnalytics;
+
 import by.of.servicebook.myapplication.NavigationDrawerFragment;
 import by.of.servicebook.myapplication.R;
 import by.of.servicebook.myapplication.fragments.GarageFragment;
@@ -47,6 +49,9 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
         mNavigationDrawerFragment =(NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
