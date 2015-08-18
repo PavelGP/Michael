@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- NavigationDrawer -->
+    <attr name="navigationDrawerBackground" format="reference"/>
+    <declare-styleable name="DrawerIcons">
+        <attr name="navDrawerIconGarage" format="reference"/>
+        <attr name="navDrawerIconRecords" format="reference"/>
+        <attr name="navDrawerIconStatistic" format="reference"/>
+        <attr name="navDrawerIconSettings" format="reference"/>
+    </declare-styleable>
+
+</resources>

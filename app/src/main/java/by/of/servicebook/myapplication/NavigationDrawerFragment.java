@@ -3,6 +3,7 @@ package by.of.servicebook.myapplication;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -93,16 +94,34 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(
+        View view = inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
 
-        mDrawerListView =(ListView) v.findViewById(R.id.lvSideMenu);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+        mDrawerListView =(ListView) view.findViewById(R.id.lvSideMenu);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
             }
         });
+
+
+
+        initAccount(view);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         String[] textTitle = new String[] {
                 getString(R.string.fragment_title_garage),
@@ -111,21 +130,18 @@ public class NavigationDrawerFragment extends Fragment {
                 getString(R.string.fragment_title_settings)
         };
 
-        int[] images = new int[] {
-            R.drawable.garage,
-            R.drawable.records,
-            R.drawable.statistic,
-            R.drawable.tool,
-        };
 
+        int[] images = new int[] {
+                R.styleable.DrawerIcons_navDrawerIconGarage,
+                R.styleable.DrawerIcons_navDrawerIconRecords,
+                R.styleable.DrawerIcons_navDrawerIconStatistic,
+                R.styleable.DrawerIcons_navDrawerIconSettings,
+        };
+        TypedArray drawerIcons = getActivity().obtainStyledAttributes (images);
 
         mDrawerListView.setAdapter(new DrawerAdapter(getActivity(),
                 textTitle, images));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-
-        initAccount(v);
-
-        return v;
     }
 
     void initAccount( View rootView){

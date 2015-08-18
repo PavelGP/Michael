@@ -1,6 +1,7 @@
 package by.of.servicebook.myapplication.adapters;
 
 import android.app.Activity;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,14 @@ public class DrawerAdapter extends ArrayAdapter<String> {
     private Activity context;
     private final String[] itemTitle;
     private final int[] imgid;
+    private final TypedArray images;
 
     public DrawerAdapter(Activity context, String[] itemTitle, int[] imgid) {
         super(context, R.layout.drawer_item, itemTitle);
         this.itemTitle=itemTitle;
         this.imgid=imgid;
         this.context = context;
+        images = context.obtainStyledAttributes(R.styleable.DrawerIcons);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -41,7 +44,7 @@ public class DrawerAdapter extends ArrayAdapter<String> {
         }
 
         viewHolder.text.setText(itemTitle[position]);
-        viewHolder.image.setImageResource(imgid[position]);
+        viewHolder.image.setImageDrawable(images.getDrawable(imgid[position]));
 
         return convertView;
     };

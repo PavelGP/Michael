@@ -2,11 +2,19 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- NavigationDrawer -->
         <item name="android:activatedBackgroundIndicator">@drawable/list_activated_background</item>
+        <item name="navigationDrawerBackground">@color/bg_drawer_dark</item>
+        <item name="navDrawerIconGarage">@drawable/garage</item>
+        <item name="navDrawerIconRecords">@drawable/records</item>
+        <item name="navDrawerIconStatistic">@drawable/statistic</item>
+        <item name="navDrawerIconSettings">@drawable/tool</item>
     </style>
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:textColorPrimary">#FFFFFF</item>
         <!-- Customize your theme here. -->
     </style>
+
 </resources>

@@ -19,4 +19,10 @@
     <color name="black26">#42000000</color>
     <color name="black12">#1F000000</color>
     <color name="black">#000000</color>
+
+    <!-- Redesign to dark theme-->
+    <color name="bg_drawer_dark">#6f6f6f</color>
+    <color name="bg_dark">#333333</color>
+    <color name="bg_toolbar_dark">#444b4e</color>
+
 </resources>
