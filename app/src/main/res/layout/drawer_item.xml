@@ -5,6 +5,7 @@
     android:layout_height="48dp"
     android:gravity="center_vertical"
     android:background="?android:attr/activatedBackgroundIndicator">
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
@@ -14,12 +15,12 @@
     
     <TextView
         android:id="@+id/text"
+        style="?attr/navDrawerTextMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-        android:textColor="@android:color/black"/>
+        android:layout_marginTop="8dp"/>
 
 </LinearLayout>

@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
-    app:theme="@style/Toolbar"
+    app:theme="?attr/toolbarTheme"
+    app:popupTheme="?attr/toolbarTheme"
+    android:background="?attr/toolbarBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?attr/actionBarSize"
-    android:background="@color/red">
-</android.support.v7.widget.Toolbar>
+    android:minHeight="?attr/actionBarSize"/>

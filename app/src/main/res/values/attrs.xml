@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Toolbar -->
+    <attr name="toolbarTheme" format="reference"/>
+    <attr name="toolbarBackground" format="reference"/>
+
     <!-- NavigationDrawer -->
     <attr name="navigationDrawerBackground" format="reference"/>
     <declare-styleable name="DrawerIcons">
@@ -8,5 +12,7 @@
         <attr name="navDrawerIconStatistic" format="reference"/>
         <attr name="navDrawerIconSettings" format="reference"/>
     </declare-styleable>
-
+    <attr name="navDrawerTextMenu" format="reference"/>
+    <attr name="navDrawerTextUser" format="reference"/>
+    <attr name="navDrawerTextUser.Subhead" format="reference"/>
 </resources>

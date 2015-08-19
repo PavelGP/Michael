@@ -1,20 +1,43 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Default application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Toolbar -->
+        <item name="toolbarTheme">@style/ToolbarDefault</item>
+        <item name="toolbarBackground">@color/red</item>
 
         <!-- NavigationDrawer -->
         <item name="android:activatedBackgroundIndicator">@drawable/list_activated_background</item>
-        <item name="navigationDrawerBackground">@color/bg_drawer_dark</item>
+        <item name="navigationDrawerBackground">@color/white</item>
+
         <item name="navDrawerIconGarage">@drawable/garage</item>
         <item name="navDrawerIconRecords">@drawable/records</item>
         <item name="navDrawerIconStatistic">@drawable/statistic</item>
         <item name="navDrawerIconSettings">@drawable/tool</item>
+
+        <item name="navDrawerTextMenu">@style/NavigationDrawerDefaultText</item>
+        <item name="navDrawerTextUser">@style/NavigationDrawerDefaultTextUser</item>
+        <item name="navDrawerTextUser.Subhead">@style/NavigationDrawerDefaultTextUser.Subhead</item>
     </style>
 
-    <style name="Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <!-- Customize your theme here. -->
+    <!-- Toolbar -->
+    <style name="ToolbarDefault" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <!-- NavigationDrawer -->
+    <style name="NavigationDrawerDefaultText" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="NavigationDrawerDefaultTextUser" parent="@style/TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="NavigationDrawerDefaultTextUser.Subhead">
+        <item name="android:textColor">@color/black54</item>
     </style>
 
 </resources>
