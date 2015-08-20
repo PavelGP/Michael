@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="?attr/bgList"
     tools:context="by.of.servicebook.myapplication.fragments.RecordsFragment">
 
     <LinearLayout
@@ -11,14 +11,15 @@
         android:layout_height="48dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/red">
+        android:background="?attr/bgToolbar">
+
         <TextView
             android:id="@+id/tvCar"
+            style="?textTitleToolbar"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+            android:text="Машинка"/>
+
     </LinearLayout>
 
     <ListView

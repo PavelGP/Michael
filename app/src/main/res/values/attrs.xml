@@ -2,7 +2,7 @@
 <resources>
     <!-- Toolbar -->
     <attr name="toolbarTheme" format="reference"/>
-    <attr name="toolbarBackground" format="reference"/>
+    <attr name="bgToolbar" format="reference"/>
 
     <!-- NavigationDrawer -->
     <attr name="navigationDrawerBackground" format="reference"/>
@@ -15,4 +15,25 @@
     <attr name="navDrawerTextMenu" format="reference"/>
     <attr name="navDrawerTextUser" format="reference"/>
     <attr name="navDrawerTextUser.Subhead" format="reference"/>
+
+    <!--TextStyles in app-->
+    <attr name="textTitle" format="reference"/>
+    <attr name="textTitleToolbar" format="reference"/>
+    <attr name="textSubhead" format="reference"/>
+    <attr name="textSubhead.Light" format="reference"/>
+    <attr name="textBody" format="reference"/>
+    <attr name="textBody.Record" format="reference"/>
+
+    <!--OtherAppStyles-->
+    <attr name="bgAll" format="reference"/>
+    <attr name="bgList" format="reference"/>
+    <attr name="bgListItem" format="reference"/>
+
+    <!--AppIcons-->
+    <attr name="icCalendar" format="reference"/>
+    <attr name="icMoney" format="reference"/>
+    <attr name="icMileage" format="reference"/>
+    <attr name="icRecordMark" format="reference"/>
+
+
 </resources>

@@ -4,18 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:gravity="center_vertical|left">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/blue_dot"/>
+        android:src="?attr/icRecordMark"/>
+
     <TextView
         android:id="@+id/record"
+        style="?attr/textBody.Record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="4dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textStyle="bold"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"/>
 
 </LinearLayout>

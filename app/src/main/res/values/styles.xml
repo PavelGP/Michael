@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Toolbar -->
         <item name="toolbarTheme">@style/ToolbarDefault</item>
-        <item name="toolbarBackground">@color/red</item>
+        <item name="bgToolbar">@color/red</item>
 
         <!-- NavigationDrawer -->
         <item name="android:activatedBackgroundIndicator">@drawable/list_activated_background</item>
@@ -18,6 +18,25 @@
         <item name="navDrawerTextMenu">@style/NavigationDrawerDefaultText</item>
         <item name="navDrawerTextUser">@style/NavigationDrawerDefaultTextUser</item>
         <item name="navDrawerTextUser.Subhead">@style/NavigationDrawerDefaultTextUser.Subhead</item>
+
+        <!--TextStyles in app-->
+        <item name="textTitle">@style/TextTitleDefault</item>
+        <item name="textTitleToolbar">@style/TextTitleToolbarDefault</item>
+        <item name="textSubhead">@style/TextSubheadDefault</item>
+        <item name="textSubhead.Light">@style/TextSubheadDefault.Light</item>
+        <item name="textBody">@style/TextBodyDefault</item>
+        <item name="textBody.Record">@style/TextBodyDefault.Record</item>
+
+        <!--Common app styles-->
+        <item name="bgAll">@color/white</item>
+        <item name="bgListItem">@color/white</item>
+
+        <!--AppIcons-->
+        <item name="icCalendar">@drawable/clock</item>
+        <item name="icMoney">@drawable/money</item>
+        <item name="icMileage">@drawable/flag</item>
+        <item name="icRecordMark">@drawable/blue_dot</item>
+
     </style>
 
     <!-- Toolbar -->
@@ -38,6 +57,34 @@
 
     <style name="NavigationDrawerDefaultTextUser.Subhead">
         <item name="android:textColor">@color/black54</item>
+    </style>
+
+    <!--TextStyles in app-->
+    <style name="TextTitleDefault">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <style name="TextTitleToolbarDefault">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextSubheadDefault">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    </style>
+
+    <style name="TextSubheadDefault.Light">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textColor">@color/black54</item>
+    </style>
+
+    <style name="TextBodyDefault">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+
+    <style name="TextBodyDefault.Record">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

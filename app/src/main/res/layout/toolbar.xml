@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     app:theme="?attr/toolbarTheme"
     app:popupTheme="?attr/toolbarTheme"
-    android:background="?attr/toolbarBackground"
+    android:background="?attr/bgToolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"/>

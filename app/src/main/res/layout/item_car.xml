@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingBottom="8dp"
+    android:background="?attr/bgListItem">
 
     <CheckBox
         android:id="@+id/chb"
@@ -25,21 +26,21 @@
 
         <TextView
             android:id="@+id/tvMake"
+            style="@style/TextSubheadDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="4dp"
             android:layout_marginEnd="4dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:text="VW" />
 
         <TextView
             android:id="@+id/tvModel"
+            style="@style/TextSubheadDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/tvMake"
             android:layout_toRightOf="@id/tvMake"
             android:layout_toEndOf="@id/tvMake"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:text="Passat" />
     </RelativeLayout>
 
@@ -51,16 +52,16 @@
 
         <TextView
             android:id="@+id/tvYear"
+            style="@style/TextSubheadDefault.Light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="4dp"
             android:layout_marginEnd="4dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/black54"
             android:text="2009" />
 
         <TextView
             android:id="@+id/tvYearDescription"
+            style="@style/TextSubheadDefault.Light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="4dp"
@@ -68,20 +69,17 @@
             android:layout_toRightOf="@id/tvYear"
             android:layout_toEndOf="@id/tvYear"
             android:layout_alignBaseline="@id/tvYear"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/black54"
             android:text="@string/date_of_edition" />
 
         <TextView
             android:id="@+id/tvRegNumber"
+            style="@style/TextSubheadDefault.Light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/tvYear"
             android:layout_toRightOf="@id/tvYearDescription"
             android:layout_toEndOf="@id/tvYearDescription"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/black54"
-            android:text="1234-5 AA" />
+            android:text="1234-5 AA"/>
     </RelativeLayout>
 
 </RelativeLayout>
