@@ -29,6 +29,7 @@
 
         <!--Common app styles-->
         <item name="bgAll">@color/white</item>
+        <item name="bgList">@color/white</item>
         <item name="bgListItem">@color/white</item>
 
         <!--AppIcons-->
