@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="by.of.servicebook.myapplication.activities.DetailRecordActivity">
+    tools:context="by.of.servicebook.myapplication.activities.DetailRecordActivity"
+    android:background="?attr/bgAll">
 
     <include
         android:id="@+id/toolbar"
@@ -12,10 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -27,18 +30,20 @@
                     android:layout_height="32dp"
                     android:gravity="center_vertical|left"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="8dp"
-                        android:src="@drawable/garage"/>
+                        android:src="?attr/icGarage"/>
 
                     <TextView
                         android:id="@+id/tvServiceName"
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                        android:layout_marginLeft="4dp"/>
+
                 </LinearLayout>
 
 
@@ -47,17 +52,19 @@
                     android:layout_height="32dp"
                     android:gravity="center_vertical|left"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="8dp"
-                        android:src="@drawable/clock"/>
+                        android:src="?attr/icCalendar"/>
+
                     <TextView
                         android:id="@+id/date"
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                        android:layout_marginLeft="4dp"/>
 
                 </LinearLayout>
 
@@ -66,24 +73,28 @@
                     android:layout_height="32dp"
                     android:gravity="center_vertical|right"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/flag"
+                        android:src="?attr/icMileage"
                         android:layout_marginLeft="8dp"
                         android:scaleType="centerCrop"/>
+
                     <TextView
                         android:id="@+id/mileage"
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_marginLeft="4dp"/>
+
                     <TextView
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:text="@string/km"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,35 +102,39 @@
                     android:layout_height="32dp"
                     android:gravity="center_vertical|center_horizontal"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="8dp"
-                        android:src="@drawable/money"/>
+                        android:src="?attr/icMoney"/>
+
                     <TextView
                         android:id="@+id/price"
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_marginLeft="4dp"/>
+
                     <TextView
+                        style="?attr/textSubhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:text="@string/rubles"/>
+
                 </LinearLayout>
+
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
+                style="?attr/textSubhead.Light"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/secondary_text_default_material_light"
                 android:text="@string/works"/>
 
             <LinearLayout
@@ -134,32 +149,36 @@
                 android:layout_height="wrap_content"
                 android:weightSum="20"
                 android:gravity="center_vertical">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
+
                 <TextView
+                    style="?attr/textSubhead.Bold"
                     android:layout_width="0dp"
                     android:layout_weight="15"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textStyle="bold"
                     android:text="@string/total_price"/>
+
                 <TextView
                     android:id="@+id/total_price"
+                    style="?attr/textSubhead.Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|right"/>
+
                 <TextView
+                    style="?attr/textSubhead.Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:minHeight="32dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|left"
                     android:text="@string/rubles"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -167,32 +186,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:weightSum="20">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"/>
+
                 <TextView
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="14"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical"
                     android:text="@string/total_work_price"/>
+
                 <TextView
                     android:id="@+id/work_price"
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:minHeight="32dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|right"/>
+
                 <TextView
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|left"
                     android:text="@string/rubles"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -200,56 +225,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:weightSum="20">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"/>
+
                 <TextView
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="14"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical"
                     android:text="@string/total_detail_price"/>
+
                 <TextView
                     android:id="@+id/detail_price"
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:minHeight="32dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|right"/>
+
                 <TextView
+                    style="?attr/textBody"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:gravity="center_vertical|left"
                     android:text="@string/rubles"/>
+
             </LinearLayout>
 
             <TextView
                 android:id="@+id/comment_title"
+                style="?attr/textSubhead.Light"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/secondary_text_default_material_light"
                 android:text="@string/comment"/>
+
             <TextView
                 android:id="@+id/comment_description"
+                style="?attr/textSubhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:text=""/>
 
         </LinearLayout>
+
     </ScrollView>
 
 

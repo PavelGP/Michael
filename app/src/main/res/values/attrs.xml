@@ -21,6 +21,7 @@
     <attr name="textTitleToolbar" format="reference"/>
     <attr name="textSubhead" format="reference"/>
     <attr name="textSubhead.Light" format="reference"/>
+    <attr name="textSubhead.Bold" format="reference"/>
     <attr name="textBody" format="reference"/>
     <attr name="textBody.Record" format="reference"/>
 
@@ -34,6 +35,6 @@
     <attr name="icMoney" format="reference"/>
     <attr name="icMileage" format="reference"/>
     <attr name="icRecordMark" format="reference"/>
-
+    <attr name="icGarage" format="reference"/>
 
 </resources>

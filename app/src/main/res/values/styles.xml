@@ -24,6 +24,7 @@
         <item name="textTitleToolbar">@style/TextTitleToolbarDefault</item>
         <item name="textSubhead">@style/TextSubheadDefault</item>
         <item name="textSubhead.Light">@style/TextSubheadDefault.Light</item>
+        <item name="textSubhead.Bold">@style/TextSubheadDefault.Bold</item>
         <item name="textBody">@style/TextBodyDefault</item>
         <item name="textBody.Record">@style/TextBodyDefault.Record</item>
 
@@ -33,6 +34,7 @@
         <item name="bgListItem">@color/white</item>
 
         <!--AppIcons-->
+        <item name="icGarage">@drawable/garage</item>
         <item name="icCalendar">@drawable/clock</item>
         <item name="icMoney">@drawable/money</item>
         <item name="icMileage">@drawable/flag</item>
@@ -77,6 +79,11 @@
     <style name="TextSubheadDefault.Light">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="android:textColor">@color/black54</item>
+    </style>
+
+    <style name="TextSubheadDefault.Bold">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextBodyDefault">
