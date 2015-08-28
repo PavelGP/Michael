@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="by.of.servicebook.myapplication.activities.CarDetailsActivity">
+    tools:context="by.of.servicebook.myapplication.activities.CarDetailsActivity"
+    android:background="?attr/bgAll">
 
     <include
         android:id="@+id/toolbar"
@@ -18,188 +20,173 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="@string/car_data"
+                style="?attr/textSubhead"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/car_data"/>
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp">
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp">
 
                 <TableRow>
                     <TextView
+                        style="?attr/textSubhead.Light"
                         android:text="@string/make"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/tvMake"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:text="@string/make"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/make"/>
                 </TableRow>
 
                 <TableRow android:layout_height="48dp">
                     <TextView
                         android:text="@string/model"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/tvModel"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/model"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/model"/>
 
                 </TableRow>
 
                 <TableRow android:layout_height="48dp">
                     <TextView
-                        android:text="@string/year"
+                        style="?attr/textSubhead.Light"
+
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
                         android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/year"/>
 
                     <TextView
                         android:id="@+id/tvYear"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/year"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/year"/>
                 </TableRow>
 
                 <TableRow android:layout_height="48dp">
                     <TextView
-                        android:text="@string/reg_number"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
                         android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/reg_number"/>
 
                     <TextView
                         android:id="@+id/tvRegNumber"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/reg_number"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/reg_number"/>
                 </TableRow>
 
                 <TableRow>
                     <TextView
-                        android:text="@string/vin_code"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
                         android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/vin_code"/>
 
                     <TextView
                         android:id="@+id/tvVinCode"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/vin_code"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/vin_code"/>
                 </TableRow>
 
                 <TableRow>
                     <TextView
+                        style="?attr/textSubhead.Light"
                         android:text="@string/color"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
+                        style="?attr/textSubhead.Light"
                         android:id="@+id/tvColor"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/color"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/color"/>
                 </TableRow>
 
             </TableLayout>
 
             <TextView
+                style="?attr/textSubhead"
                 android:text="@string/reg_data"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp">
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp">
 
                 <TableRow>
                     <TextView
+                        style="?attr/textSubhead.Light"
                         android:text="@string/reg_date"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/tvRegDate"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/reg_date"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/reg_date"/>
                 </TableRow>
 
                 <TableRow>
                     <TextView
+                        style="?attr/textSubhead.Light"
                         android:text="@string/reg_mileage"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
                         android:layout_marginRight="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/tvRegMileage"
+                        style="?attr/textSubhead.Light"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/reg_mileage"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@color/black54"/>
+                        android:text="@string/reg_mileage"/>
                 </TableRow>
 
             </TableLayout>
