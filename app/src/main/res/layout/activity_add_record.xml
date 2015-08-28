@@ -1,7 +1,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/bgAll">
 
     <include
         android:id="@+id/toolbar"
@@ -13,13 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
         android:layout_margin="16dp">
-
-        <Button
-            android:id="@+id/btnCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Камера"
-            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btnFile"
@@ -42,11 +36,11 @@
 
         <TextView
             android:id="@+id/tvInstruction"
+            style="?attr/textSubhead.Light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
             android:layout_centerInParent="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/add_record_instruction"/>
 
         <ImageView
